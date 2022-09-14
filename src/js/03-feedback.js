@@ -12,8 +12,11 @@ window.addEventListener('load', checkStorage);
 function checkStorage() {
   if (!localStorage.getItem(localKey)) return;
   const formValue = JSON.parse(localStorage.getItem(localKey));
-  email.value = formValue.email;
-  message.value = formValue.message;
+  for (const key in formValue) {
+    form.elements[key].value = formValue[key];
+  }
+  // email.value = formValue.email;
+  // message.value = formValue.message;
 }
 
 function onFormSubmit(event) {

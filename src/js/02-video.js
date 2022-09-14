@@ -25,9 +25,7 @@ function newStart() {
 const currentVideoTime = localStorage.getItem(timekey);
 player
   .setCurrentTime(currentVideoTime)
-  .then(() => {
-    player.play();
-  })
+  .then(() => {})
   .catch(function (error) {
     switch (error.name) {
       case 'RangeError':
