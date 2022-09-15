@@ -12,6 +12,7 @@ form.addEventListener('submit', onFormSubmit);
 // сохраняет написаное в хранилище
 window.addEventListener('load', checkStorage);
 function checkStorage() {
+  // провераяем хранилище на наличие записаных ключей.
   if (!localStorage.getItem(localKey)) return;
   const formValue = JSON.parse(localStorage.getItem(localKey));
   for (const key in formValue) {

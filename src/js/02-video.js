@@ -7,7 +7,6 @@ const player = new Player(iframe);
 // переменная для удобства для функции videoplayer-current-time
 const timekey = 'videoplayer-current-time';
 
-player.on('timeupdate', durationSavelocalstorage);
 // создали функцию, с помощью деструктаризации вытащили секунды собьекта тайм апдейт(записали в локальное хранилище)
 
 function durationSavelocalstorage({ seconds }) {
@@ -16,6 +15,7 @@ function durationSavelocalstorage({ seconds }) {
 // при перезагрузки страницы перезагружался плеер
 
 window.addEventListener('load', newStart);
+// запускаем метод on и добавляем задержку.
 player.on('timeupdate', Throttle(durationSavelocalstorage, 1000));
 function newStart() {
   if (!localStorage.getItem(timekey)) {
